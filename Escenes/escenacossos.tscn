@@ -1,83 +1,107 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Escenes/CosGodot.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Escenes/Terra.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenes/Slime.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenes/PNG/Ground/Sand/sand.png" type="Texture" id=3]
 [ext_resource path="res://Escenes/PNG/Backgrounds/colored_desert.png" type="Texture" id=4]
-[ext_resource path="res://Escenes/PNG/Enemies/slimeGreen.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 83, 20 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 21, 19.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 116.5, 18 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 26.5, 20 )
+extents = Vector2( 91.5, 18 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.625, 198.5 )
+extents = Vector2( 19.625, 89.375 )
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 36.6742
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 141, 29 )
 
 [node name="Node2D" type="Node2D"]
 
 [node name="ColoredDesert" type="Sprite" parent="."]
-position = Vector2( 513, 344 )
+position = Vector2( 514, 316 )
 texture = ExtResource( 4 )
 
 [node name="Personatge" parent="." instance=ExtResource( 1 )]
-position = Vector2( 502, 123 )
+position = Vector2( 441, 271 )
 
-[node name="Terra" parent="." instance=ExtResource( 2 )]
-position = Vector2( 79, 455 )
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 441, 271 )
 
-[node name="ColorRect2" type="ColorRect" parent="Terra"]
-margin_left = -38.5
-margin_top = -45.0
-margin_right = 194.5
-margin_bottom = -9.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 10, 306 )
+shape = SubResource( 5 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Terra"]
-position = Vector2( 77.5, -27 )
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+margin_left = -70.0
+margin_top = 285.0
+margin_right = 94.0
+margin_bottom = 322.0
+
+[node name="Sand4" type="Sprite" parent="StaticBody2D"]
+position = Vector2( 10, 305 )
+scale = Vector2( 1.30078, 0.316407 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( 451, 577 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2( -186, -382.5 )
+shape = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D5"]
+margin_left = -206.0
+margin_top = -402.0
+margin_right = -166.0
+margin_bottom = -362.0
+
+[node name="Sand" type="Sprite" parent="StaticBody2D5"]
+position = Vector2( -185, -382 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 43, 411 )
+
+[node name="ColorRect2" type="ColorRect" parent="StaticBody2D2"]
+margin_right = 184.0
+margin_bottom = 36.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 90.5, 18 )
 shape = SubResource( 1 )
 
-[node name="ColorRect3" type="ColorRect" parent="Terra"]
-margin_left = 244.0
-margin_top = -210.0
-margin_right = 297.0
-margin_bottom = -170.0
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Terra"]
-position = Vector2( 271, -190 )
-shape = SubResource( 2 )
-
-[node name="Sand2" type="Sprite" parent="Terra"]
-position = Vector2( 79.5, -27.5 )
-scale = Vector2( 1.83594, 0.273437 )
+[node name="Sand2" type="Sprite" parent="StaticBody2D2"]
+position = Vector2( 92.4999, 17.5 )
+scale = Vector2( 1.44531, 0.273437 )
 texture = ExtResource( 3 )
 
-[node name="Sand3" type="Sprite" parent="Terra"]
-position = Vector2( 272, -189 )
-scale = Vector2( 0.421875, 0.3125 )
-texture = ExtResource( 3 )
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
-[node name="Sand" type="Sprite" parent="Terra"]
-position = Vector2( 441, 123.5 )
-scale = Vector2( 2.57813, 0.367188 )
-texture = ExtResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Terra"]
-position = Vector2( 546.625, -246 )
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2( 761, 211 )
 shape = SubResource( 3 )
 
-[node name="SlimeGreen" type="Sprite" parent="."]
-position = Vector2( 645, 493 )
-texture = ExtResource( 5 )
+[node name="Sand" type="Sprite" parent="StaticBody2D3"]
+position = Vector2( 762, 209 )
+scale = Vector2( 0.3125, 1.42578 )
+texture = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SlimeGreen"]
-position = Vector2( 0, 34 )
-shape = SubResource( 4 )
+[node name="StaticBody2D4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 870, 95 )
 
-[node name="Sand" type="Sprite" parent="."]
-position = Vector2( 625, 209 )
-scale = Vector2( 0.3125, 3.09375 )
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2( 881, 148 )
+shape = SubResource( 7 )
+
+[node name="Sand" type="Sprite" parent="StaticBody2D6"]
+position = Vector2( 882.5, 147.5 )
+scale = Vector2( 2.22656, 0.460938 )
 texture = ExtResource( 3 )

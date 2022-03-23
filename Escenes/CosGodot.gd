@@ -9,8 +9,7 @@ var salts_disponibles = 2
 func _physics_process(delta):
 	velocitat.x = 0
 	if is_on_wall():
-		velocitat.y = 50
-		$AnimatedSprite.play('escala')
+		velocitat += Vector2.UP * 40
 	if salts_disponibles <= 0 and is_on_floor():
 		salts_disponibles = 2
 	if Input.is_action_pressed('mou dreta'):
@@ -22,7 +21,7 @@ func _physics_process(delta):
 		velocitat += salt
 		salts_disponibles -= 1
 	if position.y >= 1000:
-		position = Vector2(500,500)
+		position = Vector2(450,400)
 	velocitat += gravetat * delta
 	velocitat = move_and_slide(velocitat,Vector2.UP)
 	
@@ -36,12 +35,17 @@ func anima(velocitat: Vector2):
 	elif velocitat.x < 0:
 		animacio.flip_h = true
 		animacio.play('camina')
-		
+	if is_on_wall():
+		animacio.play('escala')
+		return
 	if velocitat.y <-0.1:
 		animacio.play('salta')
 		return
 		
 	if abs(velocitat.x) < 0.1:
 		animacio.play('quiet')
-		
+
+func tocat():
+	$AnimatedSprite.play('hit')
+	return
 		
