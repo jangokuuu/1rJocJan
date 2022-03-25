@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_walk1.png" type="Texture" id=1]
 [ext_resource path="res://Escenes/CosGodot.gd" type="Script" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_climb1.png" type="Texture" id=6]
 [ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_climb2.png" type="Texture" id=7]
 [ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_hit.png" type="Texture" id=8]
+[ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_swim1.png" type="Texture" id=9]
+[ext_resource path="res://Escenes/PNG/Players/128x256/Yellow/alienYellow_swim2.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -35,6 +37,11 @@ animations = [ {
 "loop": true,
 "name": "hit",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "nedar",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -51,14 +58,15 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "hit"
+animation = "nedar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 65 )
 shape = SubResource( 2 )
 
-[node name="Area2D" type="Area2D" parent="CollisionShape2D"]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 2, 65 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 2 )
 shape = SubResource( 3 )

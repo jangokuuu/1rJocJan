@@ -46,6 +46,10 @@ func anima(velocitat: Vector2):
 		animacio.play('quiet')
 
 func tocat():
-	$AnimatedSprite.play('hit')
-	return
+	position = Vector2(400,400)
 		
+func _on_Area2D_body_entered(body):
+	get_tree().change_scene("res://mon2.tscn")
+
+
+
