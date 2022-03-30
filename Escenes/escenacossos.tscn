@@ -10,19 +10,19 @@
 extents = Vector2( 83, 20 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 21, 19.5 )
+extents = Vector2( 23, 19.5 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 91.5, 18 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 19.625, 89.375 )
+extents = Vector2( 19.625, 72.1875 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 141, 29 )
 
 [sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 41.8125, 10 )
+extents = Vector2( 32.8123, 10 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -31,29 +31,29 @@ position = Vector2( 514, 316 )
 texture = ExtResource( 4 )
 
 [node name="Personatge" parent="." instance=ExtResource( 1 )]
-position = Vector2( 441, 271 )
+position = Vector2( 103, 57 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 441, 271 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 10, 306 )
+position = Vector2( -335, -42 )
 shape = SubResource( 5 )
 
 [node name="Sand4" type="Sprite" parent="StaticBody2D"]
-position = Vector2( 10, 305 )
+position = Vector2( -335, -43.9999 )
 scale = Vector2( 1.30078, 0.316407 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
-position = Vector2( 451, 577 )
+position = Vector2( 467, 553 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
-position = Vector2( -186, -382.5 )
+position = Vector2( 143, -121.5 )
 shape = SubResource( 6 )
 
 [node name="Sand" type="Sprite" parent="StaticBody2D5"]
-position = Vector2( -186, -382.4 )
+position = Vector2( 143, -121 )
 scale = Vector2( 0.328125, 0.30625 )
 texture = ExtResource( 3 )
 
@@ -61,27 +61,27 @@ texture = ExtResource( 3 )
 position = Vector2( 43, 411 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 90.5, 18 )
+position = Vector2( 270, 25 )
 shape = SubResource( 1 )
 
 [node name="Sand2" type="Sprite" parent="StaticBody2D2"]
-position = Vector2( 91.5, 17.5 )
+position = Vector2( 270, 26 )
 scale = Vector2( 1.44531, 0.289063 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D3"]
-position = Vector2( 761, 211 )
+position = Vector2( 761, 193.813 )
 shape = SubResource( 3 )
 
 [node name="Sand" type="Sprite" parent="StaticBody2D3"]
-position = Vector2( 762, 209 )
-scale = Vector2( 0.3125, 1.42578 )
+position = Vector2( 762, 192.375 )
+scale = Vector2( 0.3125, 1.16602 )
 texture = ExtResource( 3 )
 
 [node name="StaticBody2D4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 870, 95 )
+position = Vector2( 868, 102 )
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
 
@@ -97,7 +97,7 @@ texture = ExtResource( 3 )
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
-position = Vector2( 726.188, -43 )
+position = Vector2( 717.188, -43 )
 shape = SubResource( 8 )
 
 [node name="Area2D" parent="." instance=ExtResource( 5 )]

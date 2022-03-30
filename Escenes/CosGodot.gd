@@ -5,6 +5,7 @@ var velocitat = Vector2.ZERO
 var gravetat = Vector2.DOWN * 980
 var salt = Vector2.UP * 500
 var salts_disponibles = 2
+var aigua = false
 
 func _physics_process(delta):
 	velocitat.x = 0
@@ -21,7 +22,7 @@ func _physics_process(delta):
 		velocitat += salt
 		salts_disponibles -= 1
 	if position.y >= 1000:
-		position = Vector2(450,400)
+		position = Vector2(100,100)
 	velocitat += gravetat * delta
 	velocitat = move_and_slide(velocitat,Vector2.UP)
 	
@@ -31,10 +32,16 @@ func anima(velocitat: Vector2):
 	var animacio : AnimatedSprite = $AnimatedSprite
 	if velocitat.x > 0:
 		animacio.flip_h = false
-		animacio.play('camina')
+		if aigua:
+			animacio.play('nedar')
+		else:
+			animacio.play('camina')
 	elif velocitat.x < 0:
 		animacio.flip_h = true
-		animacio.play('camina')
+		if aigua:
+			animacio.play('nedar')
+		else:
+			animacio.play('camina')
 	if is_on_wall():
 		animacio.play('escala')
 		return
@@ -44,12 +51,17 @@ func anima(velocitat: Vector2):
 		
 	if abs(velocitat.x) < 0.1:
 		animacio.play('quiet')
+		
 
 func tocat():
-	position = Vector2(400,400)
+	position = Vector2(100,100)
 		
+func aigua():
+	aigua = true
+
+func fora_aigua():
+	aigua = false
+
+	
 func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://mon2.tscn")
-
-
-
