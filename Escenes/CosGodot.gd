@@ -65,3 +65,7 @@ func fora_aigua():
 	
 func _on_Area2D_body_entered(body):
 	get_tree().change_scene("res://mon2.tscn")
+
+
+func _on_Area2D2_body_entered(body):
+	get_tree().change_scene("res://vuamos.tscn")

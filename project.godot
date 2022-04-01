@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="godot_jan"
-run/main_scene="res://Escenes/joc.tscn"
+run/main_scene="res://Escenes/escenacossos.tscn"
 config/icon="res://Imatges/icon.png"
 
 [input]
